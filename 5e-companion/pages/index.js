@@ -14,10 +14,6 @@ export default function Home() {
           path={'combat'}
           title={'Combat Tools'}
         />
-        {/* <CardLink
-          path={'merchants'}
-          title={'Merchants Generator'}
-        /> */}
         <CardLink
           path={'spell-items'}
           title={'Spell Item Generator'}

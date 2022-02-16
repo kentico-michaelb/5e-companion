@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import  { d20 }  from '../utils/dice';
 import { calculateModifier } from '../utils/modifierCalc';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
+
 
 export default function MonsterSearch() {
     const [name, setName] = useState(null)
@@ -10,12 +11,12 @@ export default function MonsterSearch() {
     const [numMonsters, setNumMonsters] = useState(0);
     const [stat, setStat] = useState(0)
 
-    const apiBaseUri = 'https://www.dnd5eapi.co/api/'
+    const BASE_API = 'https://www.dnd5eapi.co/api/'
   
     function getMonster(event){
         event.preventDefault()
         if (name){
-            fetch(`${apiBaseUri}monsters/${name.toLowerCase()}`)
+            fetch(`${BASE_API}monsters/${name.toLowerCase()}`)
                 .then((res) => res.json())
                 .then((data) => {
                 setData(data)
@@ -24,7 +25,7 @@ export default function MonsterSearch() {
         }
     }
 
-    const rollForMonsters = (monsters, stat) => {
+    function rollForMonsters(monsters, stat) {
         console.log('stat' + stat)
         const modifier = calculateModifier(stat)
         let rolls = Array()
